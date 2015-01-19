@@ -1,0 +1,9 @@
+<%= form_for(@comment, method: :post, :url => {contoller: "comments", action: "create", id: params[:id]}) do |f| %>
+<%= f.label :comment_body %>
+<br>
+<br>
+<%= f.text_area :body %>
+<br>
+<br>
+<%= f.submit %>
+<% end %>

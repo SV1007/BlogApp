@@ -1,0 +1,26 @@
+<div style="height:30px;color:green">This is the detailed view of Post <%= @post.id %>:</div>
+<div><label style="color:blue">Post title: </label><%= @post.title %></div>
+<div style="height:10px"></div>
+<div><label style="color:blue">Post body: </label><%= @post.body %></div>    
+<div style="height:10px"></div>
+<% if @post.user.present? %>
+<% if @current_user.id == @post.user_id %>
+<%= link_to "Delete post", controller: "posts", action:"delete" %>
+<% end %>
+<% end %>
+<br>
+<br>
+<% @comments.each do |comment| %>
+<% if comment.user.present? %>
+<label style="color:red"><%= comment.user.email %>:</label>    
+<% end %>
+<% if !comment.user.present? %>
+<label style="color:red">No user - </label>
+<% end %>
+<%= comment.body %>
+<% if @current_user.id == comment.user_id %>
+<%= link_to "Delete", controller: "comments", action:"delete", id: comment.id %>
+<% end %>
+<div style="height:7px"></div>
+<% end %>
+<%= link_to "Add a comment", id: @post.id, controller: "comments", action: "new" %>

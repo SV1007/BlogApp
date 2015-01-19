@@ -1,0 +1,12 @@
+<% if logged_in? %>
+<%= link_to "Logout", '/logout', method: 'delete' %>
+<% end %>
+<br>
+<br>
+<div style="height:30px">This is a list of all the posts in this blog: </div>
+<% @posts.each do |p| %>
+<%= link_to p.title, controller:"posts", action:"show", id: p.id %>
+<div style="height:15px"></div>
+<% end %>
+<div style="height:30px">------------------------------</div>
+<%= link_to "Create a new post", controller: "posts", action: "new" %>
