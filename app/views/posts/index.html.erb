@@ -1,12 +1,23 @@
+<div class="container-fluid">
+	<nav class="navbar navbar-inverse"></nav>
+</div>
+
+
 <% if logged_in? %>
 <%= link_to "Logout", '/logout', method: 'delete' %>
 <% end %>
 <br>
 <br>
-<div style="height:30px">This is a list of all the posts in this blog: </div>
+<div class="container">
+	<div class="jumbotron" style="background-color:#00FFFF">
+		<h1 style="text-align:center">Welcome to BlogApp</h1>
+	</div>
+<div style="height:30px; text-align:center"><h3>This is a list of all the posts in this blog:</h3></div>
+<br>
 <% @posts.each do |p| %>
-<%= link_to p.title, controller:"posts", action:"show", id: p.id %>
+<div style="text-align:center"><%= link_to p.title, controller:"posts", action:"show", id: p.id %></div>
 <div style="height:15px"></div>
 <% end %>
-<div style="height:30px">------------------------------</div>
-<%= link_to "Create a new post", controller: "posts", action: "new" %>
+<!--<div style="height:30px">------------------------------</div>-->
+<%= link_to "Write a post", {controller: "posts", action: "new"}, {class: "btn btn-success btn-lg btn-block"} %>
+</div>

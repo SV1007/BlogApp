@@ -5,10 +5,10 @@ BlogApp::Application.routes.draw do
   get '/show/:id' => "posts#show"
   get '/post/new' => "posts#new"
   post '/post/create' => "posts#create"
-  get '/post/delete/' => "posts#delete"
+  delete '/post/delete/:id' => "posts#destroy", :as => 'destroy_post'
   get ':id/comments/new' => "comments#new"
   post ':id/comments/new' => "comments#create"
-  get  '/comments/delete/:id' => "comments#delete"
+  delete '/comments/delete/:id' => "comments#delete", :as => 'destroy_comment'
   get '/signup' => "users#new"
   post '/signup' => "users#create"
   get '/login' => "sessions#new"

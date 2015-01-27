@@ -1,11 +1,11 @@
-<div style="height:40px">Create a new Post:</div>
+<h1><div style="height:40px; text-align:center">Write your post</div></h1>
 <%= form_for(@post, method: :post, url: '/post/create') do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<div style="height:15px"></div>
-<%= f.label :body %>
 <br>
-<%= f.text_area :body %>
+<div style="text-align:center"><%= f.label :title %></div>
+<div style="text-align:center"><%= f.text_field :title %></div>
+<div style="height:15px"></div>
+<div style="text-align:center"><%= f.label :body %></div>
+<div style="text-align:center"><%= f.text_area :body %></div>
 <br>
 <br>
 <%= f.submit %>

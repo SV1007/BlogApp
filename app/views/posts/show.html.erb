@@ -5,7 +5,7 @@
 <div style="height:10px"></div>
 <% if @post.user.present? %>
 <% if @current_user.id == @post.user_id %>
-<%= link_to "Delete post", controller: "posts", action:"delete" %>
+<%= link_to 'Destroy', destroy_post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <% end %>
 <br>
@@ -19,7 +19,7 @@
 <% end %>
 <%= comment.body %>
 <% if @current_user.id == comment.user_id %>
-<%= link_to "Delete", controller: "comments", action:"delete", id: comment.id %>
+<%= link_to 'Destroy', destroy_comment_path, method: :delete %>
 <% end %>
 <div style="height:7px"></div>
 <% end %>

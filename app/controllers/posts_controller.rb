@@ -21,8 +21,11 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def delete
-		
+	def destroy
+		@post = Post.find_by(id: params[:id])
+		@post.comments.delete
+		@post.delete
+		redirect_to '/index'
 	end
 
 

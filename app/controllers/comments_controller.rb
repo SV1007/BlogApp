@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 		redirect_to controller: "posts", action: "show", id: @post.id
 	end
 
-	def delete
+	def destroy
 		@comment = Comment.find_by(id: params[:id])
 		if @comment.present?
 			@id = @comment.post_id
